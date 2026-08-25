@@ -5,3 +5,8 @@ main = "src/index.js"
 [assets]
 directory = "."
 binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "foodie-awei-db"
+database_id = "1f2a4a2b-2c90-438b-af99-96fe736634c5"
