@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="吃货阿伟 - 吃包子大冒险，全球排行榜">
+    <title>吃货阿伟 | Foodie Awei</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1 class="game-title">吃货阿伟</h1>
+            <div class="user-area" id="userArea"></div>
+        </div>
+
+        <div class="main-content">
+            <div class="game-side">
+                <div class="score-board">
+                    <div class="score-item">
+                        <span class="score-label">当前分数</span>
+                        <span class="score-value" id="currentScore">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">最高分</span>
+                        <span class="score-value" id="bestScore">0</span>
+                    </div>
+                </div>
+
+                <div class="game-wrapper">
+                    <canvas id="gameCanvas" width="400" height="400"></canvas>
+                    <div class="overlay" id="overlay">
+                        <div class="overlay-content">
+                            <h2 id="overlayTitle">吃货阿伟</h2>
+                            <p id="overlayMessage">按方向键或 WASD 开始游戏</p>
+                            <button class="btn-start" id="startBtn">开始游戏</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-panel">
+                    <div class="control-group">
+                        <label class="control-label">难度</label>
+                        <div class="difficulty-buttons">
+                            <button class="btn-difficulty active" data-speed="150">简单</button>
+                            <button class="btn-difficulty" data-speed="100">中等</button>
+                            <button class="btn-difficulty" data-speed="65">困难</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructions">
+                    <p class="instructions-title">操作说明</p>
+                    <div class="instructions-grid">
+                        <div class="instruction-item">
+                            <span class="key">↑ ↓ ← →</span>
+                            <span>方向键控制移动</span>
+                        </div>
+                        <div class="instruction-item">
+                            <span class="key">W A S D</span>
+                            <span>键盘字母控制</span>
+                        </div>
+                        <div class="instruction-item">
+                            <span class="key">空格</span>
+                            <span>暂停/继续</span>
+                        </div>
+                        <div class="instruction-item">
+                            <span class="key">滑动</span>
+                            <span>手机触摸控制</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-controls" id="mobileControls">
+                    <button class="btn-mobile" id="btnUp" data-dir="up">▲</button>
+                    <div class="mobile-row">
+                        <button class="btn-mobile" id="btnLeft" data-dir="left">◀</button>
+                        <button class="btn-mobile" id="btnDown" data-dir="down">▼</button>
+                        <button class="btn-mobile" id="btnRight" data-dir="right">▶</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leaderboard-side">
+                <div class="leaderboard">
+                    <h3>全球排行榜 Top 10</h3>
+                    <div class="leaderboard-list" id="leaderboardList">
+                        <p class="leaderboard-empty">加载中...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="auth-modal hidden" id="authModal">
+        <div class="auth-modal-content">
+            <h2 id="authModalTitle">登录</h2>
+            <form id="authForm">
+                <input type="text" id="authUsername" class="auth-input" placeholder="用户名（2-16个字符）" autocomplete="username" maxlength="16" required>
+                <input type="password" id="authPassword" class="auth-input" placeholder="密码（至少4位）" autocomplete="current-password" required>
+                <p class="auth-error" id="authError"></p>
+                <div class="auth-buttons">
+                    <button type="button" class="btn-cancel" id="authCancel">取消</button>
+                    <button type="submit" class="btn-submit" id="authSubmit">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
